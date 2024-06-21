@@ -69,5 +69,8 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('@digital-go-jp/tailwind-theme-plugin'),
+    require('tailwindcss-animate'),
+  ],
 } satisfies Config

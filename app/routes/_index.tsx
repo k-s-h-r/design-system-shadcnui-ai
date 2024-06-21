@@ -1,48 +1,54 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from '@remix-run/node'
+import { Link } from '@remix-run/react'
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+    { title: 'Remix App' },
+    { name: 'description', content: 'Welcome to Remix!' },
+  ]
+}
 
 export default function Index() {
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/quickstart"
-            rel="noreferrer"
-          >
-            5m Quick Start
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/tutorial"
-            rel="noreferrer"
-          >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="grid justify-items-start gap-8 p-4">
+      <div className="grid justify-items-start gap-2">
+        <h2 className="text-lg">Claude生成</h2>
+        <Link to="/try-claude-ai/userprofile" className="text-primary">
+          UserProfile（テキストで生成指示）
+        </Link>
+        <Link to="/try-claude-ai/homepage" className="text-primary">
+          HomePage（テキストで生成指示）
+        </Link>
+        <Link to="/try-claude-ai/userregistration" className="text-primary">
+          UserRegistration（添付画像から生成、form動作あり）
+        </Link>
+        <Link to="/try-claude-ai/shadcnui-template" className="text-primary">
+          shadcn/uiのサンプルテンプレート（添付画像から生成）
+        </Link>
+        <Link to="/try-claude-ai/shadcnui-template2" className="text-primary">
+          shadcn/uiのサンプルテンプレート（添付画像から生成、添付画像で機能説明）
+        </Link>
+      </div>
+
+      <div className="grid justify-items-start gap-2">
+        <h2 className="text-lg">shadcn/uiサンプルソース実装</h2>
+        <Link to="/sample/login" className="text-primary">
+          Login
+        </Link>
+        <Link to="/sample/dashboard" className="text-primary">
+          Dashboard
+        </Link>
+        <Link to="/sample/dashboard2" className="text-primary">
+          Dashboard2
+        </Link>
+      </div>
+
+      <div className="grid justify-items-start gap-2">
+        <h2 className="text-lg">Components実装サンプル</h2>
+        <Link to="/components" className="text-primary">
+          Components
+        </Link>
+      </div>
     </div>
-  );
+  )
 }
